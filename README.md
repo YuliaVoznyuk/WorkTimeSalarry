@@ -1,0 +1,1 @@
+universal project management platform that enables teams to plan, track and execute tasks. It provides tools for effective collaboration, resource management, scheduling, and workflow automation capabilities to improve productivity and streamline team work.
