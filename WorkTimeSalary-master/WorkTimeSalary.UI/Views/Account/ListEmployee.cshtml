@@ -1,0 +1,32 @@
+﻿@model List<WorkTimeSalary.Application.Models.EmployeeDTO>
+@{
+}
+<link rel="stylesheet" href="~/css/employeesTable.css" />
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Department</th>
+            <th>Position</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody id="userList">
+        @if (Model.Any())
+        {
+            foreach(var user in Model)
+            {
+                <tr>
+                    <td>@user.Id</td>
+                    <td>@user.Name</td>
+                    <td>@user.Department.Name</td>
+                    <td>@user.WorkPosition.Name</td>
+                    <td><a class="btn btn-secondary" asp-controller="Account" asp-action="GetUserById" asp-route-id="@user.Id">Edit</a></td>
+                    <td><a class="btn btn-secondary" asp-controller="SalaryLog" asp-action="GetSalary" asp-route-id="@user.Id">Salary</a></td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

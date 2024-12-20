@@ -1,0 +1,15 @@
+﻿@model WorkTimeSalary.Application.Models.EmployeeDTO
+
+@{
+}
+
+<form method="post" asp-controller="Employee" asp-action="Update">
+    <div class="form-row">
+        <label asp-for="Name">Ім'я:</label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="form-row">
+        <input type="submit" value="Зберегти" class="btn btn-primary" />
+    </div>
+</form>

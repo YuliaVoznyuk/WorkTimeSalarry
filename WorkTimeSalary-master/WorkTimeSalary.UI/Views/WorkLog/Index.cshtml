@@ -1,0 +1,38 @@
+﻿@model List<WorkTimeSalary.Application.Models.WorkLogDTO>
+
+<link rel="stylesheet" href="~/css/worklogTable.css" />
+
+<button class="add-row-button" onclick="addRow()">+</button>
+<button class="save-button" onclick="saveData()">Сохранить</button>
+
+<table id="myTable">
+    <tr data-employee-id="0">
+        <th>Дата початку роботи</th>
+        <th>Дата кінця роботи</th>
+        <th>Опис роботи</th>
+        <th></th>
+    </tr>
+    @if (!Model.Any())
+    {
+        <tr>
+            <td><input type="datetime-local" class="start-date"></td>
+            <td><input type="datetime-local" class="end-date"></td>
+            <td contenteditable="true"></td>
+            <td><button class="delete-row-button" onclick="deleteRow(this)">-</button></td>
+        </tr>
+    }
+    else
+    {
+        foreach (var worklog in Model)
+        {
+            <tr>
+                <td><input type="datetime-local" class="start-date" value="@worklog.StartTime.ToString("yyyy-MM-ddTHH:mm")"></td>
+                <td><input type="datetime-local" class="end-date" value="@worklog.EndTime.ToString("yyyy-MM-ddTHH:mm")"></td>
+                <td contenteditable="true">@worklog.Description</td>
+                <td><button class="delete-row-button" onclick="deleteRow(this)">-</button></td>
+            </tr>
+        }
+    }
+</table>
+
+<script src="~/js/worklogTable.js"></script>

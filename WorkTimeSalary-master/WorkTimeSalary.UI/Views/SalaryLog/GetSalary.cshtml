@@ -1,0 +1,42 @@
+﻿@* @model WorkTimeSalary.Application.Models.EmployeeDTO
+
+@{
+    double totalHoursWorked = Model.WorkLogs.Sum(wl => (wl.EndTime - wl.StartTime).TotalHours);
+}
+<h1>Salary</h1>
+<p>Total Salary: @Model.Salary</p>
+<table>
+    <tr>
+        <th>Start Time</th>
+        <th>End Time</th>
+        <!-- Додайте будь-які інші необхідні поля -->
+    </tr>
+    @foreach (var workLog in Model.WorkLogs)
+    {
+        <tr>
+            <td>@workLog.StartTime</td>
+            <td>@workLog.EndTime</td>
+            <!-- Додайте інші поля, якщо потрібно -->
+        </tr>
+    }
+</table> *@
+@model List<WorkTimeSalary.Application.Models.WorkLogDTO>
+
+<h1>Work Logs for Employee</h1>
+<table>
+    <tr>
+        <th>Description</th>
+        <th>Start Time</th>
+        <th>End Time</th>
+        <!-- Додайте будь-які інші поля, які вам потрібні -->
+    </tr>
+    @foreach (var workLog in Model)
+    {
+        <tr>
+            <td>@workLog.Description</td>
+            <td>@workLog.StartTime</td>
+            <td>@workLog.EndTime</td>
+            <!-- Додайте інші поля, якщо потрібно -->
+        </tr>
+    }
+</table>

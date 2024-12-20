@@ -1,0 +1,60 @@
+﻿@using WorkTimeSalary.Application.Models
+@model WorkTimeSalary.Application.Models.User.UserRegistrationDTO;
+@{
+}
+<link rel="stylesheet" href="~/css/register.css" />
+
+<div class="container">
+    <h2>Реєстрація співробітників</h2>
+    <form method="post">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-row">
+            <label asp-for="FirstName">Ім'я:</label>
+            <input asp-for="FirstName" class="form-control" />
+            <span asp-validation-for="FirstName" class="text-danger"></span>
+        </div>
+        <div class="form-row">
+            <label asp-for="LastName">Фамілія:</label>
+            <input asp-for="LastName" class="form-control" />
+            <span asp-validation-for="LastName" class="text-danger"></span>
+        </div>
+        <div class="form-row">
+            <label asp-for="PhoneNumber">Номер телефону:</label>
+            <input asp-for="PhoneNumber" class="form-control" />
+            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+        </div>
+        <div class="form-row">
+            <label asp-for="Email">Електрона адреса:</label>
+            <input asp-for="Email" class="form-control" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+        <div class="form-row">
+            <label asp-for="Address">Адреса проживання:</label>
+            <input asp-for="Address" class="form-control" />
+            <span asp-validation-for="Address" class="text-danger"></span>
+        </div>
+        <div class="form-row">
+            <label asp-for="Username">Логін:</label>
+            <input asp-for="Username" class="form-control" />
+            <span asp-validation-for="Username" class="text-danger"></span>
+        </div>
+        <div class="form-row">
+            <label asp-for="Password">Пароль:</label>
+            <input asp-for="Password" class="form-control" />
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+        <div class="form-row">
+            <label for="DepartmentId">Виберіть департамент:</label>
+            @Html.DropDownListFor(model => model.DepartmentId, new SelectList(ViewBag.DropdownData, "Id", "Name"), "Виберіть...", new { @class = "form-control" })
+        </div>
+        <div class="form-row">
+            <label for="PositionId">Виберіть посаду:</label>
+            @Html.DropDownListFor(model => model.PositionId, new SelectList(ViewBag.DropdownDataPosition, "Id", "Name"), "Виберіть...", new { @class = "form-control" })
+        </div>
+        <div class="form-row">
+            <input type="submit" value="Зареєструвати" class="btn btn-primary" />
+        </div>
+    </form>
+</div>
+
+ <script src="~/js/register.js"></script>
